@@ -3,7 +3,7 @@
  * 
  * @verion: 1.0
  * 
- * www.arvorejs.org
+ * https://github.com/Jedarc/arvorejs
  */
 
 	console.debug("Script da Arvore foi carregada");
@@ -13,22 +13,34 @@
 		var valores = [];
 		
 		var canvas = document.getElementById(canvasName);
-		
-		var ctx;
-		
-		if (canvas.getContext){
-		  ctx = canvas.getContext('2d');
-		} else {
+
+		if (!canvas.getContext){
 		  alert("Seu navegador não suporta canvas!");
 		}
 		
+		var x = canvas.width;
+		var y = canvas.height;
+		
 		this.Adicionar = function(valor){
-			console.debug(valor);
-			//ctx.beginPath();
-			ctx.arc(100,75,50,0,2*Math.PI);
-			ctx.font="20px Georgia";
-			ctx.fillText(valor,10,50);
-			//ctx.stroke();
+			
+			var ctx = canvas.getContext("2d");
+            var w = ctx.measureText(valor).width + 10;
+          
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(200,0,0)";
+            
+            var xArco = (x/2);
+            var yArco = (y/2);
+            
+            ctx.arc(xArco, yArco, w/2, 0, 2 * Math.PI, false);
+            ctx.fill();
+
+            ctx = canvas.getContext("2d");
+            ctx.font = '12px Arial';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.fillText(valor, xArco, yArco+3);
+			
 		};
 		
 		this.Falar = function(string){
