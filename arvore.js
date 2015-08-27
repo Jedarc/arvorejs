@@ -10,7 +10,7 @@
 	
 	function Arvore(canvasName){
 		
-		var valores = [];
+		//var valores = [];
 		
 		var canvas = document.getElementById(canvasName);
 
