@@ -1,9 +1,10 @@
-/**
+﻿/**
  * @author: Jedarc
  * 
  * @verion: 1.0
  * 
  * https://github.com/Jedarc/arvorejs
+ * http://jrcsoftwares.esy.es/projetos/arvorejs/index.html
  */
 
 	console.debug("Script da Arvore foi carregada");
